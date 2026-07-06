@@ -22,3 +22,9 @@ def test_successful_confirmation_code(verify_account_page: VerifyAccountPage):
   verify_account_page.input_code(code)
   success_text = verify_account_page.get_info_success_text()
   assert "Success" in success_text
+
+def test_unsuccessful_confirmation_code(verify_account_page: VerifyAccountPage):
+  wrong_code = "123456"
+  verify_account_page.open()
+  verify_account_page.input_code(wrong_code)
+  assert "confirmation code" in verify_account_page.get_info_text()
