@@ -1,5 +1,6 @@
 import pytest
 
+from pages.dropdown_page import DropdownPage
 from pages.dynamic_table_page import DynamicTablePage
 from pages.tags_page import TagsPage
 from pages.verify_account_page import VerifyAccountPage
@@ -17,4 +18,9 @@ def verify_account_page(driver) -> VerifyAccountPage:
 @pytest.fixture
 def tags_page(driver) -> TagsPage:
   page = TagsPage(driver)
+  return page
+
+@pytest.fixture
+def dropdown_page(driver) -> DropdownPage:
+  page = DropdownPage(driver)
   return page

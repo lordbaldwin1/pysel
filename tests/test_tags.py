@@ -1,6 +1,5 @@
 from pages.tags_page import TagsPage
 
-
 def test_initial_page_content(tags_page: TagsPage):
   tags_page.open()
   heading_text = tags_page.get_heading_text()
@@ -45,7 +44,7 @@ def test_add_and_remove_tags(tags_page: TagsPage):
 
   tags_page.input_tags(tags_to_add)
   tags_page.remove_tags_by_text(tags_to_remove)
-  
+
   actual_tags = tags_page.get_tags_text()
   assert actual_tags == expected_tags
 
